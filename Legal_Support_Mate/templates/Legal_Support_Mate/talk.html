@@ -11,15 +11,20 @@
     </h1>
     <form action="{% url "talk" category %}" method="post">
         {% csrf_token %}
-        <input type="text" name="message">
-        <input type="submit" value="送信">
+        <input type="text" name="user_message">
+        <button type="submit">送信</button>
     </form>
 
-    {% for message in messages %}
-        <p>{{ message }}</p>
-    {% endfor %}
-    {% for ans in gpt_anser %}
-        <p>{{ ans }}</p>
-    {% endfor %}
+    <div>
+        <h2>会話</h2>
+        <a href="{% url "clear" category %}">会話をクリアする</a>
+        {% for msg in messages %}
+            <p><strong>あなた: </strong>{{ msg.user_message }}</p>
+            <p><strong>chatGPT</strong>{{ msg.bot_response }}</p>
+        {% endfor %}
+    </div>
+
+    <a href="{% url "index" %}">戻る</a>
+
 </body>
 </html>
