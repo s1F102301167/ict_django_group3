@@ -4,3 +4,6 @@ from django.http import HttpResponse
 # Create your views here.
 def index(request):
     return render(request, 'Legal_Support_Mate/index.html')
+
+def talk(request):
+    return render(request, 'Legal_Support_Mate/talk.html')
