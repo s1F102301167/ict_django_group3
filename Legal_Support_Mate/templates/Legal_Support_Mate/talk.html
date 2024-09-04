@@ -6,6 +6,20 @@
     <title>Document</title>
 </head>
 <body>
-    {{ category }}
+    <h1>
+        {{ category }}
+    </h1>
+    <form action="{% url "talk" category %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="message">
+        <input type="submit" value="送信">
+    </form>
+
+    {% for message in messages %}
+        <p>{{ message }}</p>
+    {% endfor %}
+    {% for ans in gpt_anser %}
+        <p>{{ ans }}</p>
+    {% endfor %}
 </body>
 </html>
