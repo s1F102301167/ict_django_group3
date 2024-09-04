@@ -5,5 +5,5 @@ from django.http import HttpResponse
 def index(request):
     return render(request, 'Legal_Support_Mate/index.html')
 
-def chat(request):
-    return render(request, 'Legal_Support_Mate/chat.html')
+def talk(request):
+    return render(request, 'Legal_Support_Mate/talk.html')
