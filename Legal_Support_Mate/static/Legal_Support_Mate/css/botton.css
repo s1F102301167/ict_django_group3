@@ -1,13 +1,44 @@
+/* botton.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin: 20px 0;
+}
+
 .image-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px; /* 画像間のスペース */
+    grid-template-columns: repeat(4, 150px); /* 4列にする */
+    grid-gap: 20px;
+    justify-content: center;
+    padding: 20px;
 }
+
+.image-grid a {
+    display: block;
+    width: 150px; /* 画像のサイズに合わせて調整 */
+}
+
 .image-grid img {
     width: 100%;
     height: auto;
-    display: block;
+    border-radius: 8px; /* 角を丸くする */
+    transition: transform 0.2s; /* ホバー時の動きをスムーズに */
 }
-h1{
-    background-color: aqua;
+
+.image-grid img:hover {
+    transform: scale(1.1); /* ホバー時に画像を拡大する */
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 600px) {
+    .image-grid {
+        grid-template-columns: repeat(2, 150px); /* 小さい画面では2列にする */
+    }
 }
