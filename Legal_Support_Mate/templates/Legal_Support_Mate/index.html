@@ -10,14 +10,14 @@
 <body>
     <h1>相談したい内容を選択してください</h1>
     <div class="image-grid">
-        <a href="link1.html"><img src="{% static 'Legal_Support_Mate/img/chosakuken.png' %}" alt="Image 1"></a>
-        <a href="link1.html"><img src="{% static 'Legal_Support_Mate/img/hiboucyusyo.png' %}" alt="Image 1"></a>
-        <a href="link1.html"><img src="{% static 'Legal_Support_Mate/img/pawahara.png' %}" alt="Image 1"></a>
-        <a href="link1.html"><img src="{% static 'Legal_Support_Mate/img/rikon.png' %}" alt="Image 1"></a>
-        <a href="link1.html"><img src="{% static 'Legal_Support_Mate/img/roudou.png' %}" alt="Image 1"></a>
-        <a href="link1.html"><img src="{% static 'Legal_Support_Mate/img/sagi.png' %}" alt="Image 1"></a>
-        <a href="link1.html"><img src="{% static 'Legal_Support_Mate/img/souzoku.png' %}" alt="Image 1"></a>
-        <a href="link1.html"><img src="{% static 'Legal_Support_Mate/img/ziko.png' %}" alt="Image 1"></a>
+        <a href="{% url "talk" "パワハラ" %}"><img src="{% static 'Legal_Support_Mate/img/pawahara.png' %}" alt="Image 1"></a>
+        <a href="{% url "talk" "労働" %}"><img src="{% static 'Legal_Support_Mate/img/roudou.png' %}" alt="Image 1"></a>
+        <a href="{% url "talk" "著作権" %}"><img src="{% static 'Legal_Support_Mate/img/chosakuken.png' %}" alt="Image 1"></a>
+        <a href="{% url "talk" "消費者法" %}"><img src="{% static 'Legal_Support_Mate/img/sagi.png' %}" alt="Image 1"></a>
+        <a href="{% url "talk" "道路交通" %}"><img src="{% static 'Legal_Support_Mate/img/ziko.png' %}" alt="Image 1"></a>
+        <a href="{% url "talk" "相続権" %}"><img src="{% static 'Legal_Support_Mate/img/souzoku.png' %}" alt="Image 1"></a>
+        <a href="{% url "talk" "離婚" %}"><img src="{% static 'Legal_Support_Mate/img/rikon.png' %}" alt="Image 1"></a>
+        <a href="{% url "talk" "誹謗中傷" %}"><img src="{% static 'Legal_Support_Mate/img/hiboucyusyo.png' %}" alt="Image 1"></a>
     </div>
 </body>
 </html>
