@@ -11,3 +11,4 @@ def talk(request, category: str):
         'category': category
     }
     return render(request, 'Legal_Support_Mate/talk.html', context)
+
