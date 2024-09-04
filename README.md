@@ -27,10 +27,15 @@ python -m venv venv
 pip install django
 ```
 
-6. サーバー起動
+7. マイグレーションをする
+```bash
+python manage.py migrate
+```
+
+8. サーバー起動
 ```bash
 python manage.py runserver
 ```
 
-7. http://127.0.0.1:8000/Legal_Support_Mate
+9. http://127.0.0.1:8000/Legal_Support_Mate
 にアクセス
