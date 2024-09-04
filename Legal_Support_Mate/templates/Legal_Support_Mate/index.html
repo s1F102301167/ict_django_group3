@@ -1,33 +1,23 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Legal_Support_Mate</title>
-    <style>
-        .image-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px; /* 画像間のスペース */
-        }
-        .image-grid img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-    </style>
+    <link rel="stylesheet" href="{% static "Legal_Support_Mate/css/botton.css" %}">
 </head>
 <body>
     <h1>相談したい内容を選択してください</h1>
     <div class="image-grid">
-        <a href="link1.html"><img src="../../static/Legal_Support_Mate/img/number_1.png" alt="Image 1"></a>
-        <a href="link2.html"><img src="../../static/Legal_Support_Mate/img/number_2.png" alt="Image 2"></a>
-        <a href="link3.html"><img src="../../static/Legal_Support_Mate/img/number_3.png" alt="Image 3"></a>
-        <a href="link4.html"><img src="../../static/Legal_Support_Mate/img/number_4.png" alt="Image 4"></a>
-        <a href="link5.html"><img src="../../static/Legal_Support_Mate/img/number_5.png" alt="Image 5"></a>
-        <a href="link6.html"><img src="../../static/Legal_Support_Mate/img/number_6.png" alt="Image 6"></a>
-        <a href="link7.html"><img src="../../static/Legal_Support_Mate/img/number_7.png" alt="Image 7"></a>
-        <a href="link8.html"><img src="../../static/Legal_Support_Mate/img/number_8.png" alt="Image 8"></a>
+        <a href="link1.html"><img src="{% static 'Legal_Support_Mate/img/number_1.png' %}" alt="Image 1"></a>
+        <a href="link1.html"><img src="{% static 'Legal_Support_Mate/img/number_2.png' %}" alt="Image 1"></a>
+        <a href="link1.html"><img src="{% static 'Legal_Support_Mate/img/number_3.png' %}" alt="Image 1"></a>
+        <a href="link1.html"><img src="{% static 'Legal_Support_Mate/img/number_4.png' %}" alt="Image 1"></a>
+        <a href="link1.html"><img src="{% static 'Legal_Support_Mate/img/number_5.png' %}" alt="Image 1"></a>
+        <a href="link1.html"><img src="{% static 'Legal_Support_Mate/img/number_6.png' %}" alt="Image 1"></a>
+        <a href="link1.html"><img src="{% static 'Legal_Support_Mate/img/number_7.png' %}" alt="Image 1"></a>
+        <a href="link1.html"><img src="{% static 'Legal_Support_Mate/img/number_8.png' %}" alt="Image 1"></a>
     </div>
 </body>
 </html>
