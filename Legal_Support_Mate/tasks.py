@@ -30,9 +30,25 @@ def call_gpt(question: str, category: str) -> str:
 
     # 複数のPDFファイルパスをリストで指定
     pdf_paths = [
-        # "/交通安全対策基本法.pdf",
-        # "/道路交通法.pdf"
-        "C:\\Users\\iniad\\Downloads\\security-reference-architecture.pdf"
+        "pdf/001318284.pdf",
+        "pdf/chosakken.pdf",
+        "pdf/harasment.pdf",
+        "pdf/p02-25.pdf",
+        "pdf/ハラスメント.pdf",
+        "pdf/パワハラ事例集.pdf",
+        "pdf/パワハラ事例集スライド.pdf",
+        "pdf/家事事件手続法.pdf",
+        "pdf/強盗・恐喝・脅迫.pdf",
+        "pdf/刑法.pdf",
+        "pdf/交通安全対策基本法.pdf",
+        "pdf/事故事例.pdf",
+        "pdf/自動車事故事例.pdf",
+        "pdf/消費者契約法.pdf",
+        "pdf/道路交通法.pdf",
+        "pdf/特定商取引法.pdf",
+        "pdf/民法.pdf",
+        "pdf/名誉棄損罪.pdf",
+        "pdf/労働基準法.pdf", 
     ]
 
     all_text = ""
