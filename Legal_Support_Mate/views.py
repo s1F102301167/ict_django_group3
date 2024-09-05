@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import StreamingHttpResponse
 from .models import Message
 from .tasks import call_gpt, return_time
 import markdown
@@ -24,6 +24,13 @@ def talk(request, category: str):
         'time': time
     }
     return render(request, 'Legal_Support_Mate/talk.html', context)
+
+def stream(request, category: str):
+    response = StreamingHttpResponse(
+        streaming_content=call_gpt(request.POST["user_message"],category))
+    response['Content-Type'] = 'text/event-stream'
+    response['Cache-Control'] = 'no-cache'
+    return response
 
 def clear(request, category: str):
     Message.objects.filter(category=category).delete()

@@ -6,23 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="{% static 'Legal_Support_Mate/css/talk.css' %}">
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const delay = 3000; // メッセージ表示の遅延時間（ミリ秒）
-
-            const botResponses = document.querySelectorAll(".bot-response");
-            botResponses.forEach((msg, index) => {
-                setTimeout(() => {
-                    msg.style.display = 'block';
-                }, delay * (index + 1)); // 最初のメッセージにも遅延を入れる
-            });
-        });
-    </script>
-    <style>
-        .bot-response {
-            display: none;
-        }
-    </style>
 </head>
 <body>
     <h1>{{ category }}</h1>
@@ -39,7 +22,9 @@
         {% for msg in messages %}
             <p><strong>あなた: </strong>{{ msg.user_message }}</p>
             <small>{{ time }}</small>
-            <p class="bot-response"><strong>chatGPT: </strong>{{ msg.bot_response | safe }}</p>
+            <p id="bot-response"><strong>chatGPT: </strong>
+                {{ msg.bot_response | safe }}
+            </p>
         {% endfor %}
     </div>
 
