@@ -1,7 +1,13 @@
 /* ページ全体のスタイル */
+
+@font-face {
+    font-family: 'CustomFont';
+    src: url('../M_PLUS_Rounded_1c/MPLUSRounded1c-Regular.ttf') format('truetype');
+}
+
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #D5E1E9;
+    font-family: 'CustomFont', sans-serif;
+    background-color: #d5e1e9;
     margin: 0;
     padding: 0;
     padding-bottom: 50%;
@@ -12,7 +18,9 @@ body {
     overflow: auto; /* 画面外へのスクロールを許可 */
 }
 
+
 /* メインコンテナ */
+
 div {
     width: 80%;
     background-color: #FFFFFF;
@@ -26,7 +34,9 @@ div {
     overflow: auto; /* 必要に応じてオーバーフローを隠す */
 }
 
+
 /* ヘッダー */
+
 h1 {
     margin: 30px 20px 10px;
     background-color: #FFFFFF;
@@ -51,7 +61,9 @@ h1::before {
     background: black;
 }
 
+
 /* メッセージエリアのスタイル */
+
 .messages {
     flex: 1;
     display: flex;
@@ -62,7 +74,9 @@ h1::before {
     width: 80%;
 }
 
+
 /* メッセージのスタイル */
+
 .message {
     display: flex;
     margin-bottom: 10px;
@@ -81,7 +95,9 @@ h1::before {
     white-space: pre-wrap; /* テキスト内の空白と改行をそのまま反映 */
 }
 
+
 /* ユーザーメッセージのスタイル（右側に配置） */
+
 .message.user {
     justify-content: flex-end;
 }
@@ -92,7 +108,9 @@ h1::before {
     border-radius: 15px 15px 0px 15px;
 }
 
+
 /* Botメッセージのスタイル（左側に配置） */
+
 .message.bot {
     justify-content: flex-start;
 }
@@ -105,6 +123,7 @@ h1::before {
 }
 
 /* 送信フォームを画面下部に固定 */
+
 form {
     display: flex;
     justify-content: space-between;
@@ -119,7 +138,9 @@ form {
     border-top: 1px solid #ddd;
 }
 
+
 /* テキストボックス */
+
 input[type="text"] {
     width: 80%;
     padding: 10px;
@@ -129,7 +150,9 @@ input[type="text"] {
     font-size: 14px;
 }
 
+
 /* ボタン共通スタイル */
+
 button {
     padding: 10px 20px;
     background-color: #85a8c1cb;

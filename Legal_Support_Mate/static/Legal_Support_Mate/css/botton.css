@@ -13,9 +13,28 @@ body {
 }
 
 h1 {
+    margin: 30px auto 10px;
+    /* 左右のマージンを auto に設定 */
+    background-color: #ffffff;
+    position: relative;
+    padding: 1rem;
     text-align: center;
-    color: #333;
-    margin: 20px 0;
+    border: 3px solid black;
+    border-radius: 0 10px 10px 10px;
+    width: 80%;
+}
+
+h1::before {
+    font-size: 20px;
+    position: absolute;
+    top: -25px;
+    left: -3px;
+    height: 25px;
+    padding: 0 1em;
+    content: 'LEGAL SUPPORT MATE';
+    color: white;
+    border-radius: 10px 10px 0 0;
+    background: black;
 }
 
 
