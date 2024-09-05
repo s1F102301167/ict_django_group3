@@ -9,7 +9,7 @@ body {
     font-family: 'CustomFont', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #ffffff;
+    background-color: #d5e1e9;
 }
 
 h1 {
@@ -63,12 +63,21 @@ h1::before {
 
 /* 画像リンク */
 
+
+/* 画像リンク */
+
 .image-item a {
     display: block;
     width: 80px;
-    /* 画像のサイズを調整 */
-    margin-bottom: 4px;
-    /* 画像とテキストの間隔を調整 */
+    margin-bottom: 5px;
+    background-color: #ffffff;
+    /* 背景色を白に設定 */
+    padding: 10px;
+    /* 画像の周りに余白を追加 */
+    border-radius: 8px;
+    /* 角を丸くする */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* 画像に影を追加 */
 }
 
 
@@ -92,7 +101,7 @@ h1::before {
 /* テキストのスタイル */
 
 .image-item p {
-    margin: 0;
+    margin: 5px;
     /* 画像とテキストの間隔を調整 */
     font-size: 16px;
     color: #333;
