@@ -1,23 +1,67 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Legal_Support_Mate</title>
-    <link rel="stylesheet" href="{% static "Legal_Support_Mate/css/botton.css" %}">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Legal_Support_Mate/css/botton.css' %}">
 </head>
+
 <body>
     <h1>相談したい内容を選択してください</h1>
     <div class="image-grid">
-        <a href="{% url "talk" "パワハラ" %}">パワハラ<img src="{% static 'Legal_Support_Mate/img/pawahara.png' %}" alt="Image 1"></a>
-        <a href="{% url "talk" "労働" %}">労働<img src="{% static 'Legal_Support_Mate/img/roudou.png' %}" alt="Image 1"></a>
-        <a href="{% url "talk" "著作権" %}">著作権<img src="{% static 'Legal_Support_Mate/img/chosakuken.png' %}" alt="Image 1"></a>
-        <a href="{% url "talk" "消費者法" %}">消費者法<img src="{% static 'Legal_Support_Mate/img/sagi.png' %}" alt="Image 1"></a>
-        <a href="{% url "talk" "道路交通" %}">道路交通<img src="{% static 'Legal_Support_Mate/img/ziko.png' %}" alt="Image 1"></a>
-        <a href="{% url "talk" "相続権" %}">相続権<img src="{% static 'Legal_Support_Mate/img/souzoku.png' %}" alt="Image 1"></a>
-        <a href="{% url "talk" "離婚" %}">離婚<img src="{% static 'Legal_Support_Mate/img/rikon.png' %}" alt="Image 1"></a>
-        <a href="{% url "talk" "誹謗中傷" %}">誹謗中傷<img src="{% static 'Legal_Support_Mate/img/hiboucyusyo.png' %}" alt="Image 1"></a>
+        <div class="image-item">
+            <a href="{% url 'talk' 'パワハラ' %}">
+                <img src="{% static 'Legal_Support_Mate/img/pawahara.png' %}" alt="パワハラ">
+            </a>
+            <p>パワハラ</p>
+        </div>
+        <div class="image-item">
+            <a href="{% url 'talk' '労働' %}">
+                <img src="{% static 'Legal_Support_Mate/img/rouki.png' %}" alt="労働">
+            </a>
+            <p>労働</p>
+        </div>
+        <div class="image-item">
+            <a href="{% url 'talk' '著作権' %}">
+                <img src="{% static 'Legal_Support_Mate/img/chosakuken.png' %}" alt="著作権">
+            </a>
+            <p>著作権</p>
+        </div>
+        <div class="image-item">
+            <a href="{% url 'talk' '消費者法' %}">
+                <img src="{% static 'Legal_Support_Mate/img/syohisya.png' %}" alt="消費者法">
+            </a>
+            <p>消費者法</p>
+        </div>
+        <div class="image-item">
+            <a href="{% url 'talk' '道路交通' %}">
+                <img src="{% static 'Legal_Support_Mate/img/ziko.png' %}" alt="道路交通">
+            </a>
+            <p>道路交通</p>
+        </div>
+        <div class="image-item">
+            <a href="{% url 'talk' '相続権' %}">
+                <img src="{% static 'Legal_Support_Mate/img/souzoku.png' %}" alt="相続権">
+            </a>
+            <p>相続権</p>
+        </div>
+        <div class="image-item">
+            <a href="{% url 'talk' '離婚' %}">
+                <img src="{% static 'Legal_Support_Mate/img/rikon.png' %}" alt="離婚">
+            </a>
+            <p>離婚</p>
+        </div>
+        <div class="image-item">
+            <a href="{% url 'talk' '誹謗中傷' %}">
+                <img src="{% static 'Legal_Support_Mate/img/hibocyusho.png' %}" alt="誹謗中傷">
+            </a>
+            <p>誹謗中傷</p>
+        </div>
     </div>
 </body>
+
 </html>

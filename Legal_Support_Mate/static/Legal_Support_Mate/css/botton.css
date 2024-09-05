@@ -1,44 +1,109 @@
-/* botton.css */
+/* フォント設定 */
+
+@font-face {
+    font-family: 'CustomFont';
+    src: url('../M_PLUS_Rounded_1c/MPLUSRounded1c-Regular.ttf') format('truetype');
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'CustomFont', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #ffffff;
 }
 
 h1 {
+    margin: 30px auto 10px;
+    /* 左右のマージンを auto に設定 */
+    background-color: #ffffff;
+    position: relative;
+    padding: 1rem;
     text-align: center;
-    color: #333;
-    margin: 20px 0;
+    border: 3px solid black;
+    border-radius: 0 10px 10px 10px;
+    width: 80%;
 }
+
+h1::before {
+    font-size: 20px;
+    position: absolute;
+    top: -25px;
+    left: -3px;
+    height: 25px;
+    padding: 0 1em;
+    content: 'LEGAL SUPPORT MATE';
+    color: white;
+    border-radius: 10px 10px 0 0;
+    background: black;
+}
+
+
+/* 画像グリッド */
 
 .image-grid {
     display: grid;
-    grid-template-columns: repeat(4, 150px); /* 4列にする */
-    grid-gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    /* 1行に4列表示 */
+    gap: 10px;
+    /* 画像間の間隔を調整 */
     justify-content: center;
-    padding: 20px;
+    margin-top: 50px;
 }
 
-.image-grid a {
+
+/* 画像アイテム */
+
+.image-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
+/* 画像リンク */
+
+.image-item a {
     display: block;
-    width: 150px; /* 画像のサイズに合わせて調整 */
+    width: 80px;
+    /* 画像のサイズを調整 */
+    margin-bottom: 4px;
+    /* 画像とテキストの間隔を調整 */
 }
 
-.image-grid img {
+
+/* 画像のスタイル */
+
+.image-item img {
     width: 100%;
     height: auto;
-    border-radius: 8px; /* 角を丸くする */
-    transition: transform 0.2s; /* ホバー時の動きをスムーズに */
+    border-radius: 8px;
+    transition: transform 0.2s;
 }
 
-.image-grid img:hover {
-    transform: scale(1.1); /* ホバー時に画像を拡大する */
+
+/* 画像ホバー効果 */
+
+.image-item img:hover {
+    transform: scale(1.1);
 }
+
+
+/* テキストのスタイル */
+
+.image-item p {
+    margin: 0;
+    /* 画像とテキストの間隔を調整 */
+    font-size: 16px;
+    color: #333;
+}
+
 
 /* レスポンシブ対応 */
+
 @media (max-width: 600px) {
     .image-grid {
-        grid-template-columns: repeat(2, 150px); /* 小さい画面では2列にする */
+        grid-template-columns: repeat(2, 1fr);
+        /* 小さい画面では2列にする */
     }
 }
