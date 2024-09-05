@@ -78,6 +78,8 @@ h1::before {
     /* 角を丸くする */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     /* 画像に影を追加 */
+    border: 1px solid black;
+    /* 白い背景に黒の縁を追加 */
 }
 
 
