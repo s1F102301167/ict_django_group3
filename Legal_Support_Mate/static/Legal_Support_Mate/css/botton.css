@@ -13,7 +13,8 @@ body {
 }
 
 h1 {
-    margin: 30px 20px 10px;
+    margin: 30px auto 10px;
+    /* 左右のマージンを auto に設定 */
     background-color: #ffffff;
     position: relative;
     padding: 1rem;
