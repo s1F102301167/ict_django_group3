@@ -18,7 +18,6 @@ from langchain import PromptTemplate
 from langchain import LLMChain
 
 def call_gpt(question: str, category: str) -> str:
-    return "テスト"
     #APIキーの登録
     os.environ["OPENAI_API_KEY"] = "hp_v8CJhGZOsPl_QHsF1oW6w9lzvA-B5QGi3sQS_DNKBmDe_TUvLlAg95Y_rDzk4ikTu5_yqB5ja8zrYqq5A_iw"
 
@@ -30,25 +29,27 @@ def call_gpt(question: str, category: str) -> str:
 
     # 複数のPDFファイルパスをリストで指定
     pdf_paths = [f for f in [
-        "Legal_Support_Mate/pdf/001318284.pdf",
-        "Legal_Support_Mate/pdf/chosakken.pdf",
-        "Legal_Support_Mate/pdf/harasment.pdf",
-        "Legal_Support_Mate/pdf/p02-25.pdf",
-        "Legal_Support_Mate/pdf/ハラスメント.pdf",
-        "Legal_Support_Mate/pdf/パワハラ事例集.pdf",
-        "Legal_Support_Mate/pdf/パワハラ事例集スライド.pdf",
-        "Legal_Support_Mate/pdf/家事事件手続法.pdf",
-        "Legal_Support_Mate/pdf/強盗・恐喝・脅迫.pdf",
-        "Legal_Support_Mate/pdf/刑法.pdf",
-        "Legal_Support_Mate/pdf/交通安全対策基本法.pdf",
-        "Legal_Support_Mate/pdf/事故事例.pdf",
-        "Legal_Support_Mate/pdf/自動車事故事例.pdf",
-        "Legal_Support_Mate/pdf/消費者契約法.pdf",
-        "Legal_Support_Mate/pdf/道路交通法.pdf",
-        "Legal_Support_Mate/pdf/特定商取引法.pdf",
-        "Legal_Support_Mate/pdf/民法.pdf",
-        "Legal_Support_Mate/pdf/名誉棄損罪・侮辱罪.pdf",
-        "Legal_Support_Mate/pdf/労働基準法.pdf",] if category in f
+        "Legal_Support_Mate/pdf/パワハラ1.pdf",
+        "Legal_Support_Mate/pdf/パワハラ2.pdf",
+        "Legal_Support_Mate/pdf/パワハラ3.pdf",
+        "Legal_Support_Mate/pdf/パワハラ4.pdf",
+        "Legal_Support_Mate/pdf/消費者法1.pdf",
+        "Legal_Support_Mate/pdf/消費者法2.pdf",
+        "Legal_Support_Mate/pdf/相続権1.pdf",
+        "Legal_Support_Mate/pdf/相続権2.pdf",
+        "Legal_Support_Mate/pdf/相続権3.pdf",
+        "Legal_Support_Mate/pdf/道路交通1.pdf",
+        "Legal_Support_Mate/pdf/道路交通2.pdf",
+        "Legal_Support_Mate/pdf/道路交通3.pdf",
+        "Legal_Support_Mate/pdf/道路交通4.pdf",
+        "Legal_Support_Mate/pdf/道路交通5.pdf",
+        "Legal_Support_Mate/pdf/著作権.pdf",
+        "Legal_Support_Mate/pdf/誹謗中傷1.pdf",
+        "Legal_Support_Mate/pdf/誹謗中傷2.pdf",
+        "Legal_Support_Mate/pdf/誹謗中傷3.pdf",
+        "Legal_Support_Mate/pdf/離婚1.pdf",
+        "Legal_Support_Mate/pdf/離婚2.pdf",
+        "Legal_Support_Mate/pdf/労働1.pdf",] if category in f
     ]
 
     all_text = ""
