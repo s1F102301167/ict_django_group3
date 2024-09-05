@@ -18,7 +18,7 @@ from langchain import PromptTemplate
 from langchain import LLMChain
 
 def call_gpt(question: str, category: str) -> str:
-
+    return "テスト"
     #APIキーの登録
     os.environ["OPENAI_API_KEY"] = "hp_v8CJhGZOsPl_QHsF1oW6w9lzvA-B5QGi3sQS_DNKBmDe_TUvLlAg95Y_rDzk4ikTu5_yqB5ja8zrYqq5A_iw"
 
@@ -29,26 +29,26 @@ def call_gpt(question: str, category: str) -> str:
     )
 
     # 複数のPDFファイルパスをリストで指定
-    pdf_paths = [
-        "pdf/001318284.pdf",
-        "pdf/chosakken.pdf",
-        "pdf/harasment.pdf",
-        "pdf/p02-25.pdf",
-        "pdf/ハラスメント.pdf",
-        "pdf/パワハラ事例集.pdf",
-        "pdf/パワハラ事例集スライド.pdf",
-        "pdf/家事事件手続法.pdf",
-        "pdf/強盗・恐喝・脅迫.pdf",
-        "pdf/刑法.pdf",
-        "pdf/交通安全対策基本法.pdf",
-        "pdf/事故事例.pdf",
-        "pdf/自動車事故事例.pdf",
-        "pdf/消費者契約法.pdf",
-        "pdf/道路交通法.pdf",
-        "pdf/特定商取引法.pdf",
-        "pdf/民法.pdf",
-        "pdf/名誉棄損罪.pdf",
-        "pdf/労働基準法.pdf", 
+    pdf_paths = [f for f in [
+        "Legal_Support_Mate/pdf/001318284.pdf",
+        "Legal_Support_Mate/pdf/chosakken.pdf",
+        "Legal_Support_Mate/pdf/harasment.pdf",
+        "Legal_Support_Mate/pdf/p02-25.pdf",
+        "Legal_Support_Mate/pdf/ハラスメント.pdf",
+        "Legal_Support_Mate/pdf/パワハラ事例集.pdf",
+        "Legal_Support_Mate/pdf/パワハラ事例集スライド.pdf",
+        "Legal_Support_Mate/pdf/家事事件手続法.pdf",
+        "Legal_Support_Mate/pdf/強盗・恐喝・脅迫.pdf",
+        "Legal_Support_Mate/pdf/刑法.pdf",
+        "Legal_Support_Mate/pdf/交通安全対策基本法.pdf",
+        "Legal_Support_Mate/pdf/事故事例.pdf",
+        "Legal_Support_Mate/pdf/自動車事故事例.pdf",
+        "Legal_Support_Mate/pdf/消費者契約法.pdf",
+        "Legal_Support_Mate/pdf/道路交通法.pdf",
+        "Legal_Support_Mate/pdf/特定商取引法.pdf",
+        "Legal_Support_Mate/pdf/民法.pdf",
+        "Legal_Support_Mate/pdf/名誉棄損罪・侮辱罪.pdf",
+        "Legal_Support_Mate/pdf/労働基準法.pdf",] if category in f
     ]
 
     all_text = ""
@@ -140,7 +140,6 @@ def return_time():
         for i, time in enumerate(time_data.split("\n")):
             if i == 3 :continue
             T.append(time)
-    
+
     return  "/".join(T[0:3])+" "+":".join(T[3:5])
   # 2024/9/5 14:5
-

@@ -35,6 +35,7 @@
         <a href="{% url 'clear' category %}">会話をクリアする</a>
         {% for msg in messages %}
             <p><strong>あなた: </strong>{{ msg.user_message }}</p>
+            <small>{{ time }}</small>
             <p class="bot-response"><strong>chatGPT: </strong>{{ msg.bot_response }}</p>
         {% endfor %}
     </div>
