@@ -1,32 +1,35 @@
 /* ページ全体のスタイル */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #d5e1e9;
+    background-color: #D5E1E9;
     margin: 0;
     padding: 0;
+    padding-bottom: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    overflow: hidden; /* 画面外へのスクロールを防ぐ */
+    overflow: auto; /* 画面外へのスクロールを許可 */
 }
 
 /* メインコンテナ */
 div {
     width: 80%;
-    background-color: #ffffff;
+    background-color: #FFFFFF;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    height: 100%; /* 画面全体に拡張 */
     padding: 10px;
+    /* height: 100%; */ /* 高さの指定を除去 */
+    min-height: 100px; /* 必要に応じて最低高さを指定 */
+    overflow: auto; /* 必要に応じてオーバーフローを隠す */
 }
 
 /* ヘッダー */
 h1 {
     margin: 30px 20px 10px;
-    background-color: #ffffff;
+    background-color: #FFFFFF;
     position: relative;
     padding: 1rem;
     text-align: center;
@@ -55,8 +58,8 @@ h1::before {
     flex-direction: column;
     overflow-y: auto;
     padding: 20px;
-    max-height: calc(100% - 80px);
-    width:80%
+    max-height: none; /* 高さ制限なしにする */
+    width: 80%;
 }
 
 /* メッセージのスタイル */
@@ -70,9 +73,12 @@ h1::before {
     padding: 10px 15px;
     border-radius: 20px;
     max-width: 70%;
-    word-wrap: break-word;
+    word-wrap: break-word; /* 文字の折り返しを許可 */
+    word-break: break-all; /* 長い単語を折り返し */
+    overflow-wrap: break-word; /* 長い単語を折り返し */
     font-size: 14px;
     line-height: 1.4;
+    white-space: pre-wrap; /* テキスト内の空白と改行をそのまま反映 */
 }
 
 /* ユーザーメッセージのスタイル（右側に配置） */
@@ -81,7 +87,7 @@ h1::before {
 }
 
 .message.user p {
-    background-color: #dcf8c6;
+    background-color: #DCF8C6;
     color: #333;
     border-radius: 15px 15px 0px 15px;
 }
@@ -92,17 +98,18 @@ h1::before {
 }
 
 .message.bot p {
-    background-color: #cfd2db;
+    background-color: #CFD2DB;
     color: #333;
     border-radius: 15px 15px 15px 0px;
     border: 1px solid #ddd;
 }
+
 /* 送信フォームを画面下部に固定 */
 form {
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    background-color: #f0f0f0;
+    background-color: #F0F0F0;
     width: 80%;
     position: fixed;
     bottom: 0;
@@ -135,7 +142,8 @@ button {
     display: inline-block;
     text-align: center;
 }
-a.button2{
+
+a.button2 {
     padding: 10px;
     background-color: #85a8c1cb;
     color: white;
@@ -146,9 +154,9 @@ a.button2{
     text-decoration: none;
     display: inline-block;
     text-align: center;
-    width:150px
+    width: 150px;
 }
 
 button:hover, a.button2:hover {
-    background-color: #4554a0;
+    background-color: #4554A0;
 }
