@@ -1,9 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{% static 'Legal_Support_Mate/css/talk.css' %}">
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const delay = 3000; // メッセージ表示の遅延時間（ミリ秒）
@@ -23,7 +25,7 @@
     </style>
 </head>
 <body>
-    <h1>{{ category }}</h1>
+    <h1>{{ category }}に関する相談はこちら</h1>
     <form action="{% url 'talk' category %}" method="post">
         {% csrf_token %}
         <input type="text" name="user_message">
@@ -31,8 +33,9 @@
     </form>
 
     <div>
-        <h2>会話</h2>
-        <a href="{% url 'clear' category %}">会話をクリアする</a>
+        <h2>相談チャット</h2>
+        <a class="button2" href="{% url 'index' %}">戻る</a>
+        <a class="button2" href="{% url 'clear' category %}">会話をクリアする</a>
         {% for msg in messages %}
             <p><strong>あなた: </strong>{{ msg.user_message }}</p>
             <small>{{ time }}</small>
@@ -40,6 +43,5 @@
         {% endfor %}
     </div>
 
-    <a href="{% url 'index' %}">戻る</a>
 </body>
 </html>
