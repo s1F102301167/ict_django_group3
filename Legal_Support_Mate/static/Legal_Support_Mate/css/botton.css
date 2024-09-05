@@ -24,6 +24,19 @@ h1 {
     width: 80%;
 }
 
+h1::before {
+    font-size: 20px;
+    position: absolute;
+    top: -25px;
+    left: -3px;
+    height: 25px;
+    padding: 0 1em;
+    content: 'LEGAL SUPPORT MATE';
+    color: white;
+    border-radius: 10px 10px 0 0;
+    background: black;
+}
+
 
 /* 画像グリッド */
 
