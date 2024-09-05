@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Message
-from .tasks import call_gpt
+from .tasks import call_gpt, return_time
 
 def index(request):
     return render(request, 'Legal_Support_Mate/index.html')
@@ -12,11 +12,14 @@ def talk(request, category: str):
         bot_response = call_gpt(msg, category)
         Message.objects.create(category=category, user_message=msg, bot_response=bot_response)
         return redirect('talk', category)
+    time = return_time()
+    print(time)
     context = {
         'category': category,
         'messages': Message.objects
                 .filter(category=category)
-                .order_by('created_at')
+                .order_by('created_at'),
+        'time': time
     }
     return render(request, 'Legal_Support_Mate/talk.html', context)
 

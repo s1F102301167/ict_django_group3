@@ -24,7 +24,7 @@ python -m venv venv
 
 5. djangoのインストール
 ```bash
-pip install django
+pip install django langchain langchain-community openai langchain_openai pypdf tiktoken chromadb
 ```
 
 7. マイグレーションをする
