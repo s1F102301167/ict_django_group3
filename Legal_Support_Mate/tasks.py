@@ -18,7 +18,6 @@ from langchain import PromptTemplate
 from langchain import LLMChain
 
 def call_gpt(question: str, category: str) -> str:
-    return "テスト"
     #APIキーの登録
     os.environ["OPENAI_API_KEY"] = "hp_v8CJhGZOsPl_QHsF1oW6w9lzvA-B5QGi3sQS_DNKBmDe_TUvLlAg95Y_rDzk4ikTu5_yqB5ja8zrYqq5A_iw"
 
