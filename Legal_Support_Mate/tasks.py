@@ -98,3 +98,33 @@ def call_gpt(question: str, category: str) -> str:
             yield answer, "\n\n".join(sources)
 
     return "".join([p[0] for p in process_query_with_rag(question)][-1])
+
+
+##時間のAPIを利用
+import requests
+
+# テキストデータを指定された URL から取得する関数
+def fetch_time_data(url):
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # HTTP エラーが発生した場合に例外をスロー
+        return response.text  # 生のテキストデータを返す
+    except requests.RequestException as e:
+        print(f"エラーが発生しました: {e}")
+        return None
+
+# 時刻データの URL
+time_data_url = "http://www.openspc2.org/data/date/full.txt"
+
+# 時刻データを取得して表示する
+def return_time():
+    time_data = fetch_time_data(time_data_url)
+    if time_data:
+        T = []
+        for i, time in enumerate(time_data.split("\n")):
+            if i == 3 :continue
+            T.append(time)
+    
+    return  "/".join(T[0:3])+" "+":".join(T[3:5])
+  # 2024/9/5 14:5
+
