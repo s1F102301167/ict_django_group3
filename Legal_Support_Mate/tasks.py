@@ -1,15 +1,19 @@
 import os
 ## Chat Modelsを使うときはChatOpenAIをインポート
 from langchain.chat_models import ChatOpenAI
-from langchain.document_loaders import PyPDFLoader
 from langchain.embeddings.openai import OpenAIEmbeddings
-from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores import Chroma
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain.vectorstores import Chroma
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+import time
+def stream_test(s, d):
+    res = s + d
+    for c in "g**aa**  #AAAAAAAAA":
+        yield res
+        res += c
+        print(c, sep=" ", end=" ")
 
 def call_gpt(question: str, category: str):
     #APIキーの登録
@@ -34,9 +38,9 @@ def call_gpt(question: str, category: str):
     #制約内容
     1.読み込んだデータに基づき法律に沿いアドバイスをしてください。
     2.親身になって相談を聞いてあげてください。
-    3.相手の文章から反省の色が見えなか#例に沿って判断し不適切な場合は強く警告してあげてください。
+    3.相手の文章から反省の色が見えないか判断し不適切な場合は強く警告してあげてください。
     そのあとに法律のみに沿い対処法を順に沿って詳しく教えてあげてください。
-    例)やったぜ、殺したぜ、轢いてやったぜ、最高、爽快等
+
     {category}に関する質問: {question}
     """
     print(template_with_context)
@@ -66,13 +70,12 @@ def call_gpt(question: str, category: str):
         sources = [doc.page_content for doc in relevant_docs]
 
         # 回答の生成（ストリーミング）
-        answer = ""
+        answer = []
         for chunk in chain_with_context.stream(query):
-            answer += chunk
+            answer.append(chunk)
             print(answer)
-            yield answer, #"\n\n".join(sources)
-    return "".join([p[0] for p in process_query_with_rag(question)][-1])
-
+            yield "".join(answer)#, "\n\n".join(sources)
+    return process_query_with_rag(question)
 ##時間のAPIを利用
 import requests
 
