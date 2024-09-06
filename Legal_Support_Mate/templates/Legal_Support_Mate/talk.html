@@ -6,29 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="{% static 'Legal_Support_Mate/css/talk.css' %}">
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const delay = 3000; // メッセージ表示の遅延時間（ミリ秒）
-
-            const botResponses = document.querySelectorAll(".bot-response");
-            botResponses.forEach((msg, index) => {
-                setTimeout(() => {
-                    msg.style.display = 'block';
-                }, delay * (index + 1)); // 最初のメッセージにも遅延を入れる
-            });
-        });
-    </script>
-    <style>
-        .bot-response {
-            display: none;
-        }
-    </style>
 </head>
 <body>
-    <h1>{{ category }}</h1>
-    <form action="{% url 'talk' category %}" method="post">
+    <h1>{{ category }}について</h1>
+    <form action={% url "talk" category %} method="post" id="chat-form">
         {% csrf_token %}
-        <input type="text" name="user_message">
+        <input type="text" name="user_message" id="user_message">
         <button type="submit">送信</button>
     </form>
 
@@ -36,12 +19,78 @@
         <h2>相談チャット</h2>
         <a class="button2" href="{% url 'index' %}">戻る</a>
         <a class="button2" href="{% url 'clear' category %}">会話をクリアする</a>
-        {% for msg in messages %}
-            <p><strong>あなた: </strong>{{ msg.user_message }}</p>
-            <small>{{ time }}</small>
-            <p class="bot-response"><strong>chatGPT: </strong>{{ msg.bot_response | safe }}</p>
-        {% endfor %}
+        <span>
+            {% for msg in messages %}
+                <p><strong>あなた: </strong>{{ msg.user_message }}</p>
+                <small>{{ time }}</small>
+                <p class="botres"><strong>chatGPT: </strong>
+                    {{ msg.bot_response | safe }}
+                </p>
+            {% endfor %}
+        </span>
+        <span id="messages"></span>
     </div>
 
-</body>
+<!-- JavaScript for dynamically displaying messages -->
+<script>
+    // 初期化用のメッセージリスト（揮発性）
+    const messages = [
+        {% for msg in messages %}
+            {
+                user_message: "{{ msg.user_message|escapejs }}",
+                bot_response: "{{ msg.bot_response|escapejs }}",
+                created_at: "{{ msg.created_at }}"
+            },
+        {% endfor %}
+    ];
+
+    // メッセージを表示する関数
+    function displayMessages() {
+        const messagesDiv = document.getElementById('messages');
+        messagesDiv.innerHTML = '';  // 既存の内容をクリア
+
+        // メッセージをループして追加
+        messages.forEach((msg) => {
+            const userMessageHtml = `<p><strong>あなた: </strong>${msg.user_message}</p><small>${msg.created_at}</small>`;
+            const botResponseHtml = `<p><strong>chatGPT: </strong>${msg.bot_response}</p>`;
+            messagesDiv.innerHTML += userMessageHtml + botResponseHtml;
+        });
+    }
+
+    // 初回メッセージ表示
+    displayMessages();
+
+    document.getElementById('chat-form').onsubmit = function(e) {
+        e.preventDefault();
+        const user_message = document.getElementById('user_message').value;
+
+        // 新しいメッセージを揮発性メッセージリストに追加
+        messages.push({
+            user_message: user_message,
+            bot_response: "考え中...",  // 初期値として仮の応答
+            created_at: new Date().toLocaleString()
+        });
+
+        // メッセージリストを再描画
+        displayMessages();
+
+        // フォームのクリア
+        document.getElementById('user_message').value = '';
+
+        // SSE接続（メッセージが返ってきたら上書き）
+        const evtSource = new EventSource("{% url 'sse' category=category %}?user_message=" + encodeURIComponent(user_message));
+        evtSource.onmessage = function(event) {
+            const response = event.data;
+
+            // 応答が完了したら接続を閉じる
+            if (response === "done") {
+                evtSource.close(); return;
+            }
+            // 最後のメッセージ（仮応答）を更新
+            messages[messages.length - 1].bot_response = response;
+            displayMessages();
+
+        };
+    };
+</script></body>
 </html>
